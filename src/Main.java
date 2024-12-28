@@ -1,3 +1,7 @@
+import com.designpatterns.FacadeDesignPattern.EmailServiceImpl;
+import com.designpatterns.FacadeDesignPattern.OrderFacade;
+import com.designpatterns.FacadeDesignPattern.OrderServiceImpl;
+import com.designpatterns.FacadeDesignPattern.PaymentServiceImpl;
 import com.designpatterns.FactoryDesignPattern.DAOFactory;
 import com.designpatterns.FactoryDesignPattern.DAOFactoryProducer;
 import com.designpatterns.FactoryDesignPattern.ProductEntity;
@@ -9,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
         factoryDesignPattern();
+        facadeDesignPattern();
     }
 
     public static void factoryDesignPattern(){
@@ -31,5 +36,16 @@ public class Main {
 
        // daoFactory = DAOFactoryProducer.getFactory("ORACLE");
 
+    }
+
+    public static void facadeDesignPattern(){
+
+        System.out.println("=========Facade Design Pattern=================");
+        String orderName = "Bed";
+        double amount = 5000;
+        String email = "test@gmail.com";
+
+        OrderFacade orderFacade = new OrderFacade(new EmailServiceImpl(),new OrderServiceImpl(),new PaymentServiceImpl());
+        orderFacade.placeOrder(orderName,amount,email);
     }
 }

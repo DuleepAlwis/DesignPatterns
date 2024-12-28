@@ -19,6 +19,7 @@ This project is a standalone Java application demonstrating the implementation o
     - **Structural Patterns**:
         - Adapter
         - Decorator
+        - Facade
     - **Behavioral Patterns**:
         - Observer
         - Strategy
