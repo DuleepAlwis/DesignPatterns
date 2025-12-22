@@ -2,9 +2,9 @@ package com.designpatterns.FacadeDesignPattern;
 
 public class OrderFacade {
 
-    private  EmailServiceImpl emailService= null;
-    private  OrderServiceImpl orderService = null;
-    private  PaymentServiceImpl paymentService = null;
+    private  CommonService emailService= null;
+    private  CommonService orderService = null;
+    private  CommonService paymentService = null;
 
     public OrderFacade(final EmailServiceImpl emailService,final OrderServiceImpl orderService,final PaymentServiceImpl paymentService) {
         this.emailService = emailService;

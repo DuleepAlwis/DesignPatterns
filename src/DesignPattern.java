@@ -4,16 +4,19 @@ import com.designpatterns.FacadeDesignPattern.OrderServiceImpl;
 import com.designpatterns.FacadeDesignPattern.PaymentServiceImpl;
 import com.designpatterns.FactoryDesignPattern.DAOFactory;
 import com.designpatterns.FactoryDesignPattern.DAOFactoryProducer;
-import com.designpatterns.FactoryDesignPattern.ProductEntity;
 import com.designpatterns.FactoryDesignPattern.UserEntity;
+import com.designpatterns.StrategyDesignPattern.Context;
+import com.designpatterns.StrategyDesignPattern.EmailService;
+import com.designpatterns.StrategyDesignPattern.SMSService;
 
 import java.util.List;
 
-public class Main {
+public class DesignPattern {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
         factoryDesignPattern();
         facadeDesignPattern();
+        strategyDesignPattern();
     }
 
     public static void factoryDesignPattern(){
@@ -47,5 +50,23 @@ public class Main {
 
         OrderFacade orderFacade = new OrderFacade(new EmailServiceImpl(),new OrderServiceImpl(),new PaymentServiceImpl());
         orderFacade.placeOrder(orderName,amount,email);
+    }
+
+    public static void strategyDesignPattern(){
+
+        System.out.println("======Strategy Design pattern=======");
+
+        String toEmail = "kasun@gmail.com";
+        String messageEmail = "Notification is an email";
+
+        Context context = new Context(new EmailService());
+        context.sendNotification(toEmail,messageEmail);
+        System.out.println("=============================");
+
+        String smsNumber = "0712346789";
+        String messageSms = "Notification is a sms";
+
+        Context context1 = new Context(new SMSService());
+        context1.sendNotification(smsNumber,messageSms);
     }
 }

@@ -39,12 +39,12 @@ DesignPatterns |---
       - SingletonDesignPattern
       - ObserverDesignPattern
       - ...
-      - Main.java
+      - DesignPattern.java
       
 
 ## Github Branching strategy
 
-- Main branch is the master branch of this project
+- DesignPattern branch is the master branch of this project
 - dev branch is used for development.
 - You can create a specific branch for new development and merge the 
 changes to the **dev** branch not the **main** branch.
