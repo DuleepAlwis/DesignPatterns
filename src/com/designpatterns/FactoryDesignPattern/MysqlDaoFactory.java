@@ -11,4 +11,8 @@ public class MysqlDaoFactory implements DAOFactory{
     public ProductDAO getProductDAO() {
         return new MysqlProductDao();
     }
+
+    private void test(){
+        System.out.println("Test");
+    }
 }
